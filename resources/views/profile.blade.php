@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Profil Saya</h1>
+    <h1>Profil Sayaaa</h1>
     <p>Nama: Bintang</p>
     <p>NIM: 123456789</p>
     <p>Jurusan: Teknik Informatika</p>

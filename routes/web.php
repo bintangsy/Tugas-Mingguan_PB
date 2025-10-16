@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,37 +14,28 @@ Route::get('/profile', function () {
         "title" => "profile",
         "nama" => "M Bintang Syafalabib",
         "nohp" => "083527347735",
-        "foto" => "images/bintangganteng.jpg",
+        "foto" => "image/bintangganteng.jpg",
     ]);
 });
 
 Route::get('/berita', function () {
 
-    $data_berita = [
-        [
-            "judul" => "Hot News 1",
-            "penulis" => "Yanto",
-            "konten" => "Cara mengubah rasa sedih menjadi rasa coklat",
-        ],
-        [
-            "judul" => "Hot News 2",
-            "penulis" => "Heru",
-            "konten" => "Barca juara liga champions 2025",
-        ],
-        [
-            "judul" => "Hot News 3",
-            "penulis" => "Wowo",
-            "konten" => "Rafi ahmad jatuh miskin",
-        ],
-    ];
     return view('berita', [
         "title" => "berita",
-        "berita" => $data_berita,
+        "berita" => Berita::ambildata(),
     ]);
 });
 
 Route::get('/contact', function () {
     return view('contact', [
         "title" => "contact",
+    ]);
+});
+
+Route::get('/berita/{slug}', function ($slug) {
+
+    return view('singleberita', [
+        "title" => "Berita",
+        "new_berita" => Berita::caridata($slug),
     ]);
 });

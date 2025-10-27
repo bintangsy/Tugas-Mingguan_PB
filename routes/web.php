@@ -1,41 +1,28 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\MahasiswaController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "home",
-    ]);
+Route::get('/', function (){
+    return view('home');
 });
 
-Route::get('/profile', function () {
-    return view('profile',[
-        "title" => "profile",
-        "nama" => "M Bintang Syafalabib",
-        "nohp" => "083527347735",
-        "foto" => "image/bintangganteng.jpg",
-    ]);
+Route::get('/profile', function (){
+    return view('profile');
 });
 
-Route::get('/berita', function () {
-
-    return view('berita', [
-        "title" => "berita",
-        "berita" => Berita::ambildata(),
-    ]);
+Route::get('/about', function () {
+    return view ('about');
 });
 
 Route::get('/contact', function () {
-    return view('contact', [
-        "title" => "contact",
-    ]);
+    return view ('contact');
 });
 
-Route::get('/berita/{slug}', function ($slug) {
+Route::get('/berita', [BeritaController::class, 'index']);
 
-    return view('singleberita', [
-        "title" => "Berita",
-        "new_berita" => Berita::caridata($slug),
-    ]);
-});
+Route::get('/berita/{slug}', [BeritaController::class, 'datatampil']);
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');

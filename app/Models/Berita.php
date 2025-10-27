@@ -18,7 +18,7 @@ class Berita extends Model
             "judul" => "Berita Kendal Handal",
             "slug"=> "berita-kendal-handal",
             "penulis" => "Yanto",
-            "konten" => "Kendal menjadi ibu kota Indonesia",
+            "konten" => "Kendal menjadi ibu kota Indonesias",
         ],
         [
             "judul" => "Berita Odgj di Rumah Sakit Jiwa",

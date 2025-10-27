@@ -11,7 +11,7 @@
 <body>
     <!-- ✅ Navbar harus di sini -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Bintang</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,13 +22,16 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
+                    <a class="nav-link" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/berita">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/contact">Contact</a>
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mahasiswa">Mahasiswa</a>
                 </li>
             </ul>
         </div>

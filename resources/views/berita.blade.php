@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Berita</h1>
-    @foreach ( $berita as $berita )
+    @foreach ( $beritas as $berita )
     <article class="mb-5">
 
         <a href="/berita/{{ $berita ['slug'] }}">

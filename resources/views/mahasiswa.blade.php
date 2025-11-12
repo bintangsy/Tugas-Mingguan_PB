@@ -3,7 +3,15 @@
 @section('content')
 <h1 class="text-center"> Data Mahasiswa</h1>
     <div class="row">
+        <a href="/tambahmahasiswa"
         <button type="button" class="btn btn-success">Tambah Data</button>
+        </a>
+<br>
+@if ($message = Session::get('success'))
+    <div class="alert alert-success" role="alert">
+        {{ $message }}
+    </div>
+@endif
         <table class="table">
   <thead>
     <tr>

@@ -7,29 +7,47 @@ use App\Models\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
-    // Menampilkan seluruh data mahasiswa
     public function index()
     {
-        return view('mahasiswa', [
-            'data' => Mahasiswa::all(),
-            'title' => 'Data Mahasiswa',
-        ]);
+        $data = Mahasiswa::all();
+        return view('Mahasiswa', compact('data'), [
+            
+        "title" => " Data Mahasiswa",
+    ]);
     }
 
-    // Menampilkan form tambah mahasiswa
-    public function tambahmahasiswa() 
+    public function tambahmahasiswa()
     {
-        return view('tambahmahasiswa', [
-            'title' => 'Tambah Data Mahasiswa',
+        return view('mahasiswa.tambahmahasiswa', [
+            "title" => "Tambah Data Mahasiswa",
         ]);
     }
 
-    // Menyimpan data mahasiswa baru
     public function insertdata(Request $request)
     {
-        Mahasiswa::create($request->all());
+        $data = Mahasiswa::create($request->all());
 
         return redirect()->route('mahasiswa')
-                         ->with('success', 'Data Berhasil Ditambahkan');
+            ->with('success', 'Data Berhasil Ditambahkan');
     }
+
+    public function tampildata($id)
+    {
+        $data = Mahasiswa::find($id);
+        return view("edit",[
+            "title" => "Edit Data Mahasiswa",
+            "data" => $data,
+        ]);
+    }
+
+    public function editdata(Request $request, $id)
+    {
+        $data = Mahasiswa::findOrFail($id);
+        $data->update($request->all());
+
+        return redirect()->route('mahasiswa')
+            ->with('success', 'Data Berhasil Diedit');
+    }
+
+    
 }

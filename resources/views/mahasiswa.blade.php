@@ -35,7 +35,7 @@
         <td>{{$mahasiswa["email"]}}</td>
         <td>{{$mahasiswa["nohp"]}}</td>
         <td>
-            <button type="button" class="btn btn-primary">EDIT</button>
+            <a href="tampildata/{{ $mahasiswa['id'] }}" class="btn btn-primary">EDIT</a>
             <button type="button" class="btn btn-danger">HAPUS</button>
         </td>
         <?php $i++?>

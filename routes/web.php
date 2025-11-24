@@ -14,7 +14,7 @@ Route::get('/', function () {
 Route::get('/profile', function () {
     return view('profile',[
         "title" => "profile",
-        "nama" => "Hasbi Zain",
+        "nama" => "Bintang Sy",
         "nohp" => "085228496778",
         "foto" => "img/hasbizain.jpg",
     ]);

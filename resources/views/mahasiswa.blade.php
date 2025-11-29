@@ -36,7 +36,7 @@
         <td>{{$mahasiswa["nohp"]}}</td>
         <td>
             <a href="tampildata/{{ $mahasiswa['id'] }}" class="btn btn-primary">EDIT</a>
-            <button type="button" class="btn btn-danger">HAPUS</button>
+            <a href="deletedata/{{ $mahasiswa['id'] }}" class="btn btn-danger" onclick="return conform('yakin ingin menghapus data ini?')">HAPUS</a>"
         </td>
         <?php $i++?>
     </tr>

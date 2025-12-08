@@ -17,7 +17,7 @@
                         <h2 class="mb-1">{{ $user->name ?? 'Bintang' }}</h2>
                         <p class="text-muted mb-1">{{ $user->role ?? 'Mahasiswa & Penjual Dimsum Mentai' }}</p>
                         <div class="small text-muted mb-2">
-                            <div>Email: {{ $user->email ?? 'bintang@example.com' }}</div>
+                            <div>Email: {{ $user->email ?? 'masbinsya@gmail.com' }}</div>
                             <div>Telepon: {{ $user->phone ?? '+62 812-3456-7890' }}</div>
                         </div>
                         <div>
@@ -119,9 +119,9 @@
                     <div class="card mb-4 shadow-sm">
                         <div class="card-body">
                             <h6 class="mb-3">Detail Kontak</h6>
-                            <p class="mb-1"><strong>Email:</strong><br><span class="text-muted small">{{ $user->email ?? 'bintang@example.com' }}</span></p>
+                            <p class="mb-1"><strong>Email:</strong><br><span class="text-muted small">{{ $user->email ?? 'masbinsya@gmail.com' }}</span></p>
                             <p class="mb-1"><strong>Telepon / WA:</strong><br><span class="text-muted small">{{ $user->phone ?? '+62 812-3456-7890' }}</span></p>
-                            <p class="mb-1"><strong>Alamat:</strong><br><span class="text-muted small">{{ $user->address ?? 'Jl. Contoh No.1, Kota Contoh' }}</span></p>
+                            <p class="mb-1"><strong>Alamat:</strong><br><span class="text-muted small">{{ $user->address ?? 'Jl. Amarta No.4 Purin-Kendal, Jawa Tengah' }}</span></p>
                             <hr>
                             <h6 class="mb-2">Jam Operasional</h6>
                             <p class="mb-0 small text-muted">Senin - Minggu: 09:00 — 21:00</p>

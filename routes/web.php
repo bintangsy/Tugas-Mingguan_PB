@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\AuthController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
@@ -44,3 +45,7 @@ Route::get('/contact', function () {
         "title" => "contact",
     ]);
 });
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

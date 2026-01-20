@@ -36,6 +36,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/mahasiswa">Mahasiswa</a>
                     </li>
+                    @if(Auth::check())
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link">Logout</button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

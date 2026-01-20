@@ -16,9 +16,206 @@
         /* Additional styles for form */
         .form-input { @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500; }
         .form-button { @apply w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2; }
+
+        /* Futuristic Custom Styles */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; top: 10%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; top: 20%; left: 80%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 60%; left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; top: 40%; left: 60%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 7px; height: 7px; top: 80%; left: 20%; animation-delay: 4s; }
+        .particle:nth-child(6) { width: 3px; height: 3px; top: 30%; left: 90%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 0 50px rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            animation: slideIn 1.5s ease-out;
+            position: relative;
+            z-index: 2;
+            transform-style: preserve-3d;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            border-radius: 27px;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.7;
+            animation: rotateGlow 3s linear infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.4s ease;
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .form-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .form-button:hover::before {
+            left: 100%;
+        }
+
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+        }
+
+        .title {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        .link {
+            color: #4ecdc4;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+
+        .link:hover::after {
+            width: 100%;
+        }
+
+        .link:hover {
+            color: #ff6b6b;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+        }
+
+        /* Import modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
     </style>
 </head>
-<body class="antialiased bg-gray-100 dark:bg-gray-900">
+<body class="antialiased">
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
             <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
@@ -29,10 +226,14 @@
     @endif
 
     <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8">
+        <div class="login-card max-w-md w-full space-y-8 p-8">
             <div>
-                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-                    Sign in to your account
+                <div class="text-center mb-4">
+                    <svg class="mx-auto h-16 w-16 text-pink-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h2 id="title" class="title mt-6 text-center text-3xl font-extrabold">
                 </h2>
             </div>
             <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
@@ -50,15 +251,15 @@
 
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <input id="remember-me" name="remember" type="checkbox" class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded">
-                        <label for="remember-me" class="ml-2 block text-sm text-gray-900 dark:text-gray-300">
+                        <input id="remember-me" name="remember" type="checkbox" class="h-4 w-4 text-cyan-600 focus:ring-cyan-500 border-gray-300 rounded">
+                        <label for="remember-me" class="ml-2 block text-sm text-white">
                             Remember me
                         </label>
                     </div>
 
                     @if (Route::has('password.request'))
                         <div class="text-sm">
-                            <a href="{{ route('password.request') }}" class="font-medium text-red-600 hover:text-red-500">
+                            <a href="{{ route('password.request') }}" class="link font-medium">
                                 Forgot your password?
                             </a>
                         </div>
@@ -73,9 +274,9 @@
 
                 @if (Route::has('register'))
                     <div class="text-center">
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                        <p class="text-sm text-white">
                             Don't have an account?
-                            <a href="{{ route('register') }}" class="font-medium text-red-600 hover:text-red-500">
+                            <a href="{{ route('register') }}" class="link font-medium">
                                 Sign up
                             </a>
                         </p>
@@ -84,5 +285,22 @@
             </form>
         </div>
     </div>
+    <script>
+        // Typing effect for title
+        const title = document.getElementById('title');
+        const text = 'Sign in to your account';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                title.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        // Start typing after a delay
+        setTimeout(typeWriter, 500);
+    </script>
 </body>
 </html>

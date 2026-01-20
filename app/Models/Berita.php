@@ -13,18 +13,24 @@ class Berita extends Model
             "slug" => "berita-unimus-racing",
             "penulis" => "Jokowi",
             "konten" => "Ongkekan cipto diresmikan oleh wali kota",
+            "tanggal" => "2023-10-01",
+            "kategori" => "Olahraga",
         ],
         [
             "judul" => "Berita Kendal Handal",
             "slug"=> "berita-kendal-handal",
             "penulis" => "Yanto",
             "konten" => "Kendal menjadi ibu kota Indonesias",
+            "tanggal" => "2023-10-05",
+            "kategori" => "Politik",
         ],
         [
             "judul" => "Berita Odgj di Rumah Sakit Jiwa",
             "slug"=> "berita-odgj-di-rumah-sakit-jiwa",
             "penulis" => "Munawaroh",
             "konten" => "Odgj ditemukan di Rumah Sakit Jiwa",
+            "tanggal" => "2023-10-10",
+            "kategori" => "Kesehatan",
         ],
     ];
 

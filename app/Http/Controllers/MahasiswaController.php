@@ -18,7 +18,7 @@ class MahasiswaController extends Controller
 
     public function tambahmahasiswa()
     {
-        return view('mahasiswa.tambahmahasiswa', [
+        return view('tambahmahasiswa', [
             "title" => "Tambah Data Mahasiswa",
         ]);
     }
@@ -33,7 +33,7 @@ class MahasiswaController extends Controller
 
     public function tampildata($id)
     {
-        $data = Mahasiswa::find($id);
+        $data = Mahasiswa::findOrFail($id);
         return view("edit",[
             "title" => "Edit Data Mahasiswa",
             "data" => $data,
@@ -51,7 +51,7 @@ class MahasiswaController extends Controller
 
     public function deletedata($id)
     {
-        $data = Mahasiswa::find($id);
+        $data = Mahasiswa::findOrFail($id);
         
         $data->delete();
 

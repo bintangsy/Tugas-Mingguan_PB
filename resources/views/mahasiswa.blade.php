@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="text-center"> Data Mahasiswa</h1>
     <div class="row">
-        <a href="/tambahmahasiswa"
+        <a href="/tambahmahasiswa">
         <button type="button" class="btn btn-success">Tambah Data</button>
         </a>
 <br>
@@ -35,8 +35,11 @@
         <td>{{$mahasiswa["email"]}}</td>
         <td>{{$mahasiswa["nohp"]}}</td>
         <td>
-            <a href="tampildata/{{ $mahasiswa['id'] }}" class="btn btn-primary">EDIT</a>
-            <a href="deletedata/{{ $mahasiswa['id'] }}" class="btn btn-danger" onclick="return conform('yakin ingin menghapus data ini?')">HAPUS</a>"
+            <a href="{{ route('tampildata', $mahasiswa['id']) }}" class="btn btn-primary">EDIT</a>
+            <form action="{{ route('deletedata', $mahasiswa['id']) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                @csrf
+                <button type="submit" class="btn btn-danger">HAPUS</button>
+            </form>
         </td>
         <?php $i++?>
     </tr>

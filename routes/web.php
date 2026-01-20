@@ -37,7 +37,7 @@ Route::get('/tampildata/{id}',[MahasiswaController::class, 'tampildata'])->name(
 
 Route::POST('/editdata/{id}',[MahasiswaController::class, 'editdata'])->name('editdata');
 
-Route::get('/deletedata/{id}',[MahasiswaController::class, 'deletedata'])->name('deletedata');
+Route::POST('/deletedata/{id}',[MahasiswaController::class, 'deletedata'])->name('deletedata');
 
 
 Route::get('/contact', function () {
@@ -48,4 +48,5 @@ Route::get('/contact', function () {
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

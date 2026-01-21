@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - Laravel</title>
+    <title>Register - Laravel</title>
     <style>
         /* Import modern font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -30,7 +30,7 @@
             max-width: 420px;
         }
 
-        .login-card {
+        .register-card {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 16px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -89,43 +89,6 @@
             color: #a0aec0;
         }
 
-        .form-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .checkbox-input {
-            width: 16px;
-            height: 16px;
-            accent-color: #667eea;
-        }
-
-        .checkbox-label {
-            font-size: 14px;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        .forgot-link {
-            font-size: 14px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .forgot-link:hover {
-            color: #764ba2;
-        }
-
         .form-button {
             width: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -149,17 +112,17 @@
             transform: translateY(0);
         }
 
-        .register-section {
+        .login-section {
             text-align: center;
         }
 
-        .register-text {
+        .login-text {
             font-size: 14px;
             color: #4a5568;
             margin-bottom: 8px;
         }
 
-        .register-link {
+        .login-link {
             color: #667eea;
             text-decoration: none;
             font-weight: 600;
@@ -167,7 +130,7 @@
             transition: color 0.3s ease;
         }
 
-        .register-link:hover {
+        .login-link:hover {
             color: #764ba2;
         }
 
@@ -184,7 +147,7 @@
 
         /* Responsive design */
         @media (max-width: 480px) {
-            .login-card {
+            .register-card {
                 padding: 30px 24px;
             }
 
@@ -200,13 +163,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="login-card">
+        <div class="register-card">
             <div class="logo-section">
                 <svg class="logo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
                 </svg>
-                <h1 class="title">Welcome Back</h1>
-                <p class="subtitle">Sign in to your account</p>
+                <h1 class="title">Create Account</h1>
+                <p class="subtitle">Join us today</p>
             </div>
 
             @if ($errors->any())
@@ -219,8 +182,21 @@
                 </div>
             @endif
 
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('register') }}" method="POST">
                 @csrf
+
+                <div class="form-group">
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        class="form-input"
+                        placeholder="Full name"
+                        value="{{ old('name') }}"
+                        required
+                        autofocus
+                    >
+                </div>
 
                 <div class="form-group">
                     <input
@@ -231,7 +207,6 @@
                         placeholder="Email address"
                         value="{{ old('email') }}"
                         required
-                        autofocus
                     >
                 </div>
 
@@ -246,35 +221,26 @@
                     >
                 </div>
 
-                <div class="form-row">
-                    <div class="checkbox-group">
-                        <input
-                            id="remember"
-                            name="remember"
-                            type="checkbox"
-                            class="checkbox-input"
-                        >
-                        <label for="remember" class="checkbox-label">
-                            Remember me
-                        </label>
-                    </div>
-
-                    @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="forgot-link">
-                            Forgot password?
-                        </a>
-                    @endif
+                <div class="form-group">
+                    <input
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        type="password"
+                        class="form-input"
+                        placeholder="Confirm password"
+                        required
+                    >
                 </div>
 
                 <button type="submit" class="form-button">
-                    Sign In
+                    Create Account
                 </button>
 
-                @if (Route::has('register'))
-                    <div class="register-section">
-                        <p class="register-text">Don't have an account?</p>
-                        <a href="{{ route('register') }}" class="register-link">
-                            Create one here
+                @if (Route::has('login'))
+                    <div class="login-section">
+                        <p class="login-text">Already have an account?</p>
+                        <a href="{{ route('login') }}" class="login-link">
+                            Sign in here
                         </a>
                     </div>
                 @endif
